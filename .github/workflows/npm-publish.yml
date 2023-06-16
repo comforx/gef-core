@@ -4,6 +4,20 @@ on:
     branches:
       - master
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v2
+      with:
+        node-version: 12.x
+    - name: Install cmake & gcc
+      run: sudo apt-get install build-essential gdb cmake
+    - name: Install package
+      run: cd app && npm install
+    - name: Testing
+      run: cd app && npm run debug:cmake && npm run debug:build && npm run debug:test
   npm-publish:
     name: npm-publish
     runs-on: ubuntu-latest
