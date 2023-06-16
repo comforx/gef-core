@@ -15,9 +15,9 @@ jobs:
     - name: Install cmake & gcc
       run: sudo apt-get install build-essential gdb cmake
     - name: Install package
-      run: cd app && npm install
+      run: npm install
     - name: Testing
-      run: cd app && npm run debug:cmake && npm run debug:build && npm run debug:test
+      run: npm run debug:cmake && npm run debug:build && npm run debug:test
   npm-publish:
     name: npm-publish
     runs-on: ubuntu-latest
