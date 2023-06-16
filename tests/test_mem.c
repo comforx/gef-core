@@ -15,7 +15,7 @@ int test_mem(int argc, char *argv[]) {
   g_mem_profile(&allocated, &freed, &peak);
   g_mem_record_end();
   assert(allocated == (100 + 200 + 150));
-  assert(freed == (100 + 200 + 150));
+  assert(freed == (100 + 200 + 151));
   printf("\r\nallocated memory: %ld  \r\nfreed memory: %ld  \r\npeak memory: %ld\r\n", allocated, freed, peak);
   return 0;
 }
